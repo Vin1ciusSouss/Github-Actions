@@ -18,3 +18,32 @@ repositório, ou implantar pull requests mesclados em produção.
 - Jobs: Ações que serão executadas quando a pipeline for trigada.
 - env (opcional): Variáveis de ambiente
 - [Explicação no workflow:](https://docs.github.com/pt/actions/writing-workflows/about-workflows) learn-github-actions.yml
+
+## Sintaxe de variáveis
+
+- ${{  }}                   --> Sintaxe de variáveis
+- ${{ github.actor }}       --> Nome de usuário: viniciusSouss                   
+- ${{ github.event_name }}  --> Trigger [on]: push, cron, workflow_dispatch, etc
+- ${{ runner.os }}          --> Sistema operacional configurado em “runs-on”
+- ${{ github.ref }}         --> Branch de referência
+- ${{ github.repository }}  --> Nome do repositório
+- ${{ github.workspace }}   --> Lista os arquivos do repositório
+- ${{ job.status }}         --> Status do job: success, fail
+
+
+## Gatilhos de execução
+- [Documentação](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/triggering-a-workflow#using-events-to-trigger-workflows)
+
+#### Gatilho: Push
+    - O que é push? 
+        É um comando fundamental para enviar seus commits locais para um repositório remoto.
+
+#### Exemplos: 
+- 1_basic_on_push.yml
+- 2_branch_on_push.yml
+- 3_branch_ignore_on_push.yml
+- 4_path_on_push.yml
+- 5_on_push.yml
+
+#### Observações importantes
+- "branches" e "branches-ignore" não podem ser configurados no mesmo arquivo .yml
