@@ -1,0 +1,14 @@
+name: GitHub Actions - Push Template Basic
+run-name: Running - ${{ github.event_name}}, ${{ github.actor }} is testing out GitHub Actions 🚀 
+on: 
+  push:
+    branches-ignore:
+      - develop
+jobs:
+  on-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentário
+        run: |
+          echo "Comentário do workflow PUSH - Branch Ignore"
+  
