@@ -1,0 +1,19 @@
+name: GitHub Actions - Pull Template Basic
+run-name: Running - ${{ github.event_name}}, ${{ github.actor }} is testing out GitHub Actions 🚀 
+on: 
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - closed
+    branches:
+      - main
+    paths:
+      - '**.txt'
+jobs:
+  on-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comentário
+        run: |
+          echo "Comentário do workflow PULL REQUEST WORKFLOW - Basic"

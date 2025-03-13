@@ -47,3 +47,76 @@ repositório, ou implantar pull requests mesclados em produção.
 
 #### Observações importantes
 - "branches" e "branches-ignore" não podem ser configurados no mesmo arquivo .yml
+
+
+#### Gatilho: Pull Request
+    - O que é Pull request? 
+        É a solicitação para merge do código. Durante o pull request pode acontecer a revisão do código levando a alteração de parte do código proposto.
+
+#### Exemplos:
+- 1_basic_on_pull_request.yml
+- 2_branch_on_pull_request.yml
+- 3_type_on_pull_request.yml
+- 4_on_pull_request.yml
+
+Opções de "paths" e "branches-ignore" também pode ser usadas aqui.
+
+#### Observações importantes
+- Para testar você pode criar outra branch local fazer um commit e depois abrir o Pull Request via GitHub.
+- Para testar você pode fazer uma alteração diretamente no GitHub e na hora de salvar escolha a opção de criar outra branch e abrir PR.
+
+#### Gatilho: Workflow dispatch
+    - O que é workflow dispatch? 
+        É um trigger que permite que um fluxo de trabalho seja disparado manualmente.
+
+#### Exemplos:
+- 1_basic_on_workflow_dispatch.yml
+- 2_input_choice_on_workflow_dispatch.yml
+- 3_input_string_on_workflow_dispatch.yml
+- 4_input_bool_on_workflow_dispatch.yml
+- 5_on_workflow_dispatch.yml
+
+#### Observações importantes
+- Para executa-lo você precisa entrar no GitHub Action e acioná-lo manualmente.
+
+#### Gatilho: Cron Job
+    - O que é Cron Job? 
+        É um trigger que permite que você agenda a execução de um fluxo de trabalho.
+
+#### Exemplos:
+- 1_on_cron.yml
+
+#### Legenda
+
+┌───────────── minute (0 - 59)
+│ ┌───────────── hour (0 - 23)
+│ │ ┌───────────── day of the month (1 - 31)
+│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+│ │ │ │ │
+│ │ │ │ │
+│ │ │ │ │
+* * * * *
+
+#### Observações importantes
+- Horário utilizado é UTC (horário do Brasil + 3 horas)
+- Use para auxiliar na montagem do cron job: [CronJob Guru](https://crontab.guru/)
+- Horário não será exato, depende da disponibilidade do GitHub Actions
+
+# Gatilho: Workflow run
+- [Workflow dispatch documentação](https://docs.github.com/pt/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run)
+
+## O que é Workflow run
+    É a um trigger que permite que a execução de um fluxo de trabalho seja triggado por meio de outro fluxo de trabalho.
+    
+## Exemplos
+- 1_basic_on_workflow_run.yml
+- 2_types_on_workflow_run.yml
+- 3_branch_on_workflow_run.yml
+- 4_workflows_on_workflow_run.yml
+
+## Observações importantes
+- Não é possível usar workflow_run para encadear mais de três níveis de fluxos de trabalho
+- Podemos usar o filtros para especificar os branches em que o fluxo de trabalho de gatilho precisa ser executado para disparar o fluxo de trabalho:
+    - branches
+    - branches-ignore
