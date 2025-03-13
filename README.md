@@ -88,35 +88,48 @@ Opções de "paths" e "branches-ignore" também pode ser usadas aqui.
 
 #### Legenda
 
-┌───────────── minute (0 - 59)
-│ ┌───────────── hour (0 - 23)
-│ │ ┌───────────── day of the month (1 - 31)
-│ │ │ ┌───────────── month (1 - 12 or JAN-DEC)
-│ │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-│ │ │ │ │
-│ │ │ │ │
-│ │ │ │ │
-* * * * *
+- minute (0 - 59)
+- hour (0 - 23)
+- day of the month (1 - 31)
+- month (1 - 12 or JAN-DEC)
+- day of the week (0 - 6 or SUN-SAT)
+
 
 #### Observações importantes
 - Horário utilizado é UTC (horário do Brasil + 3 horas)
 - Use para auxiliar na montagem do cron job: [CronJob Guru](https://crontab.guru/)
 - Horário não será exato, depende da disponibilidade do GitHub Actions
 
-# Gatilho: Workflow run
+#### Gatilho: Workflow run
 - [Workflow dispatch documentação](https://docs.github.com/pt/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run)
 
-## O que é Workflow run
+#### O que é Workflow run
     É a um trigger que permite que a execução de um fluxo de trabalho seja triggado por meio de outro fluxo de trabalho.
     
-## Exemplos
+#### Exemplos
 - 1_basic_on_workflow_run.yml
 - 2_types_on_workflow_run.yml
 - 3_branch_on_workflow_run.yml
 - 4_workflows_on_workflow_run.yml
 
-## Observações importantes
+#### Observações importantes
 - Não é possível usar workflow_run para encadear mais de três níveis de fluxos de trabalho
 - Podemos usar o filtros para especificar os branches em que o fluxo de trabalho de gatilho precisa ser executado para disparar o fluxo de trabalho:
     - branches
     - branches-ignore
+
+
+## Configurando variáveis no repositório do GitHub
+- [Variáveis](https://docs.github.com/pt/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables)
+
+#### O que é uma varíavel de repositório?
+- É uma varíavel configurada no repositório do Github e todos os workflows conseguem utilizada.
+- Como esta variável não é protegida, é possível ver seus valor no log de execução
+
+#### Configuração
+- Setting
+- Secrets and variables
+- Actions
+
+#### Exemplos
+- 1_config_variaveis_gha.yml
